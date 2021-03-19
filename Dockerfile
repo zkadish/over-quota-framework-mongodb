@@ -4,7 +4,9 @@ FROM mongo:4.4.2
 # LABEL version="0.1" maintainer="ObjectRocket"
 
 # use 'RUN' to execute commands in the container's bash terminal
-# RUN apt-get update -y
+RUN apt-get update
+RUN apt-get install vim -y
+RUN apt-get install nano -y
 
 # Define default command.
 RUN mkdir -p ./data/db

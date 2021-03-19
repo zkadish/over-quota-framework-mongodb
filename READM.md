@@ -2,7 +2,7 @@
 
 ## Development getting started
 
-### Create the docker network
+### When connecting docker containers Create the docker network
 
 - Create the docker network
 - $ docker network create --driver bridge skillup-network
@@ -19,16 +19,16 @@
 ### Build image and run docker container
 
 - Build the mongo docker image from the Dockerfile
-- $ docker build -t mongodb:skillup-app-mongodb . --no-cache <!-- --rm try this flag -->
+- $ docker build -t mongodb:skillup-app-service . --no-cache <!-- --rm try this flag -->
   
 - Run the image as a standalone container on localhost
-- $ docker run -v ${PWD}/mongo-data:/data/db -p 27020:27017 -it mongodb:skillup-app-mongodb bash
+- $ docker run --name skillup-app-db -v ${PWD}/mongo-data:/data/db -p 27020:27017 -it mongodb:skillup-app-service bash
 
 - Connect to the docker container via another terminal
-- $ docker exec -it {container-id} bash
+- $ docker exec -it skillup-app-db bash
   
 - Run the image as a container in a docker user defined network
-- $ docker run -v ${PWD}/mongo-data:/data/db -p 27020:27017 --network skillup-network -it mongodb:skillup-app-mongodb bash
+- $ docker run -v ${PWD}/mongo-data:/data/db -p 27020:27017 --network skillup-network -it mongodb:skillup-app-service bash
   
 - Start the mongo server in the background
 - $ mongod --bind_ip 0.0.0.0 &
@@ -42,6 +42,8 @@
 
 ### TODOs
 
+- set up a mongo config file
+- run mongo with credentials
 - remove intermediate images after build...
 - Integrate docker-compose.yml
 - Use makefile to start project via make script
