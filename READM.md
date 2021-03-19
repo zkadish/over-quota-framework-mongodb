@@ -1,5 +1,7 @@
-# Mongo SkillUp DB Server
+# Mongo SkillUp Desktop App Service DB Server
 
+- docker contianers
+- mongodb and mongo-express
 ## Development getting started
 
 ### When connecting docker containers Create the docker network
@@ -16,7 +18,7 @@
 - To delete the network and start over
 - $ docker network rm skillup-network
 
-### Build image and run docker container
+### Build image and run docker container with docker cli
 
 - Build the mongo docker image from the Dockerfile
 - $ docker build -t mongodb:skillup-app-service . --no-cache <!-- --rm try this flag -->
@@ -36,14 +38,20 @@
 - Start the mongo cli
 - $ mongo
 
+### Build image and run docker container with docker-compose
+
+- Build and run mongo and mongo-express
+- $ docker-compose up --build
+
 ### Development Notes
 
 - If Mongo won't start try deleting all files in /mongodb/mongo-data/ and restarting mongo server
 
 ### TODOs
 
+- continue going through this tutorial: https://www.infoq.com/articles/Starting-With-MongoDB/
 - set up a mongo config file
-- run mongo with credentials
+- X run mongo with credentials?
 - remove intermediate images after build...
-- Integrate docker-compose.yml
+- X Integrate docker-compose.yml
 - Use makefile to start project via make script

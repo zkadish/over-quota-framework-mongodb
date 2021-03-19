@@ -1,0 +1,9 @@
+FROM mongo:4.4.4
+
+RUN apt-get update
+RUN apt-get install vim -y
+RUN apt-get install nano -y
+
+RUN mkdir -pv ./data/db
+
+EXPOSE 27017
