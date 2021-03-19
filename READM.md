@@ -16,16 +16,23 @@
 ### Build image and run docker container
 
 - Build the mongo docker image from the Dockerfile
-- $ docker build -t mongodb:skillup . --no-cache <!-- --rm try this flag -->
+- $ docker build -t mongodb:skillup-authn-authz . --no-cache <!-- --rm try this flag -->
+- Run the image as a standalone container on localhost
+- $ docker run -v ${PWD}/mongo-data:/data/db -p 27017:27017 -it mongodb:skillup-authn-authz bash
+- $ docker exec -it b8b471c04e7c bash
 - Run the image as a container in a docker user defined network
-- $ docker run -v ${PWD}/mongo-data:/data/db -p 27017:27017 --network skillup-network -it mongodb:skillup bash
+- $ docker run -v ${PWD}/mongo-data:/data/db -p 27017:27017 --network skillup-network -it mongodb:skillup-authn-authz bash
 - Start the mongo server in the background
 - $ mongod --bind_ip 0.0.0.0 &
 - Start the mongo cli
 - $ mongo
 
+### Development Notes
+
+- If Mongo won't start try deleting all files in /mongodb/mongo-data/ and restarting mongo server
+
 ### TODOs
 
 - remove intermediate images after build...
 - Integrate docker-compose.yml
-- Use makefile to start project via script
+- Use makefile to start project via make script
