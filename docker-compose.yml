@@ -4,21 +4,23 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_mongo
+    command: mongod --config /etc/mongod.conf --auth
     networks:
       - skillup-network
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=pass12345
+      - MONGO_INITDB_ROOT_USERNAME=skillUpAppMongodb
+      - MONGO_INITDB_ROOT_PASSWORD=5k!llUp@M0ngoDb*771
     volumes:
       - $PWD/mongo-data:/data/db
     ports:
-      - "27017:27017"
+      - "27017:34982"
     # healthcheck:
     #   test: echo 'db.runCommand("ping").ok' | mongo 127.0.0.1:27017/test --quiet
     #   interval: 30s
     #   timeout: 10s
     #   retries: 3
     restart: unless-stopped
+
   mongo-express:
     build:
       context: .
@@ -27,9 +29,10 @@ services:
       - skillup-network
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=34982
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=pass12345
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=skillUpAppMongodb
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=5k!llUp@M0ngoDb*771
       - ME_CONFIG_BASICAUTH_USERNAME=admin
       - ME_CONFIG_BASICAUTH_PASSWORD=admin123
     volumes:
@@ -44,7 +47,9 @@ services:
     #   timeout: 10s
     #   retries: 3
     restart: unless-stopped
+  
 volumes:
   mongo-data:
+
 networks:
   skillup-network:

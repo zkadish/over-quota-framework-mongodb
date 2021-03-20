@@ -41,7 +41,13 @@
 ### Build image and run docker container with docker-compose
 
 - Build and run mongo and mongo-express
-- $ docker-compose up --build
+- $ docker-compose up --build --force-recreate --remove-orphans
+
+- Connect to the mongo db with a terminal
+- docker exec -it skillup-app-mongodb_mongodb_1 bash
+
+- open mongo-express in the browser
+- http://localhost:8081/
 
 ### Development Notes
 
@@ -50,8 +56,6 @@
 ### TODOs
 
 - continue going through this tutorial: https://www.infoq.com/articles/Starting-With-MongoDB/
-- set up a mongo config file
-- X run mongo with credentials?
-- remove intermediate images after build...
-- X Integrate docker-compose.yml
+- go through the default on this page: https://hub.docker.com/_/mongo
+- Create startup script to create admin user for mongo so the credentials for the admin db user stays out of the repo.
 - Use makefile to start project via make script
