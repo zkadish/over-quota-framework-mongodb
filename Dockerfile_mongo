@@ -8,6 +8,4 @@ COPY ./mongod.conf /etc/
 
 RUN mkdir -pv ./data/db
 
-EXPOSE 34982
-
-# ENTRYPOINT ["mongod", "--config", "/etc/mongod.conf"]
+EXPOSE ${MONGO_PORT}

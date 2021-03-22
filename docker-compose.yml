@@ -8,12 +8,12 @@ services:
     networks:
       - skillup-network
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=skillUpAppMongodb
-      - MONGO_INITDB_ROOT_PASSWORD=5k!llUp@M0ngoDb*771
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
     volumes:
       - $PWD/mongo-data:/data/db
     ports:
-      - "27017:34982"
+      - "${MONGO_PORT}:${MONGO_PORT}"
     # healthcheck:
     #   test: echo 'db.runCommand("ping").ok' | mongo 127.0.0.1:27017/test --quiet
     #   interval: 30s
@@ -29,12 +29,12 @@ services:
       - skillup-network
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb
-      - ME_CONFIG_MONGODB_PORT=34982
+      - ME_CONFIG_MONGODB_PORT=${MONGO_PORT}
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=skillUpAppMongodb
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=5k!llUp@M0ngoDb*771
-      - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_ROOT_USERNAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_ROOT_PASSWORD}
+      - ME_CONFIG_BASICAUTH_USERNAME=user
+      - ME_CONFIG_BASICAUTH_PASSWORD=user123
     volumes:
       - $PWD/mongo-data
     depends_on:
