@@ -8,4 +8,4 @@ COPY ./mongod.conf /etc/
 
 RUN mkdir -pv ./data/db
 
-EXPOSE ${MONGO_PORT}
+# EXPOSE ${MONGO_PORT}

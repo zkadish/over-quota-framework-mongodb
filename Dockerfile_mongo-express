@@ -4,4 +4,4 @@ FROM mongo-express:0.54.0
 # RUN apk add vim
 # RUN apk add nano
 
-EXPOSE 8081
+# EXPOSE 8081
