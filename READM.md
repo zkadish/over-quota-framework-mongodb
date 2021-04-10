@@ -1,8 +1,10 @@
-# Mongo SkillUp Desktop App Service DB Server
+# SkillUp Framework Service DB server
 
-- docker contianers
-- mongodb and mongo-express
+
 ## Development getting started
+
+- $ nvm use 12.20.0
+- This docker container connects to the Framework Service Server via the docker network skillup-network.
 
 ### When connecting docker containers Create the docker network
 
@@ -59,3 +61,5 @@
 - go through the default on this page: https://hub.docker.com/_/mongo
 - Create startup script to create admin user for mongo so the credentials for the admin db user stays out of the repo.
 - Use makefile to start project via make script
+- move the edited js-uuid.js out of the node-modules and document what you did to make it work in the init-mongodb.js script.
+- Create a bash script to assign the mongo config... 
