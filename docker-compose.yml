@@ -10,7 +10,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
-      - MONGO_INITDB_DATABASE=frameworkServiceDev
+      - MONGO_INITDB_DATABASE=&{MONGO_INIT_DATABASE}
     volumes:
       - $PWD/mongo-data:/data/db
       - $PWD/mongo-scripts/init-mongodb.js:/docker-entrypoint-initdb.d/init-mongodb.js:ro
