@@ -3,15 +3,17 @@ services:
   mongodb-app:
     build:
       context: .
-      dockerfile: Dockerfile_mongo
+      dockerfile: Dockerfile.mongo
     command: mongod --config /etc/mongod.conf
-    networks:
-      - skillup-network
+    # networks:
+    #   - skillup-network
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=frameworkServiceDev
     volumes:
       - $PWD/mongo-data:/data/db
+      - $PWD/mongo-scripts/init-mongodb.js:/docker-entrypoint-initdb.d/init-mongodb.js:ro
     ports:
       - "${MONGO_PORT}:${MONGO_PORT}"
     # healthcheck:
@@ -23,9 +25,9 @@ services:
   mongo-express-app:
     build:
       context: .
-      dockerfile: Dockerfile_mongo-express
-    networks:
-      - skillup-network
+      dockerfile: Dockerfile.mongo-express
+    # networks:
+    #   - skillup-network
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb-app
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
@@ -39,7 +41,7 @@ services:
     depends_on:
       - mongodb-app
     ports:
-      - 8081:8081
+      - 8001:8081
     # healthcheck:
     #   test:  wget --quiet --tries=3 --spider http://admin:admin123@0.0.0.0:8081 || exit 1
     #   interval: 30s
@@ -51,4 +53,6 @@ volumes:
   mongo-data:
 
 networks:
-  skillup-network:
+  default:
+    external:
+      name: skillup-network
