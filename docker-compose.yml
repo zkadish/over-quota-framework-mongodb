@@ -4,7 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.mongo
-    command: mongod --config /etc/mongod.conf
+    command: [--config, /etc/mongod.conf]
+    # command: mongod --config /etc/mongod.conf
     # networks:
     #   - skillup-network
     environment:
