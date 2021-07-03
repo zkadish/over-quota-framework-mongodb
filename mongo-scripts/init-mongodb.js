@@ -1679,21 +1679,63 @@ const elements = [
 db.createCollection('elements');
 db.elements.insert(elements);
 
-
-
-// Create a new DB and insert a user 
-// use sessionsDev;
-// var db = db.getSiblingDB('sessionsDev');
-
-// db.createUser(
-//   {
-//     user: 'sessionuser',
-//     pwd: 'sessionuserpassword',
-//     roles: [
-//       {
-//         role: 'readWrite',
-//         db: 'sessionsDev',
-//       }
-//     ],
-//   }
-// );
+const battlecardelements = [
+  {
+    id: talktracks[0].id,
+    container_id: battlecards[0].id,
+    label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+    value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[1].id,
+    container_id: battlecards[0].id,
+    label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+    value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[2].id,
+    container_id: battlecards[1].id,
+    label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+    value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[3].id,
+    container_id: battlecards[1].id,
+    label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+    value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[4].id,
+    container_id: battlecards[1].id,
+    label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+    value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[5].id,
+    container_id: battlecards[1].id,
+    label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+    value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[6].id,
+    container_id: battlecards[2].id,
+    label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+    value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+    type: 'talk-track',
+  },
+  {
+    id: talktracks[7].id,
+    container_id: battlecards[3].id,
+    label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
+    value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
+    type: 'talk-track',
+  }
+];
+db.createCollection('battlecardelements');
+db.battlecardelements.insert(battlecardelements);
