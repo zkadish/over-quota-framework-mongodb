@@ -1767,7 +1767,7 @@ for (let i = 0; i < elements.length; i++) {
   if (i >= 39 && i <= 41) blocks[12].elements.push(elements[i].id);
   if (i >= 42 && i <= 43) blocks[13].elements.push(elements[i].id);
   if (i === 44) blocks[14].elements.push(elements[i].id);
-  if (i === 45) blocks[15].elements.push(elements[i].id);
+  if (i >= 45 && i <= 49) blocks[15].elements.push(elements[i].id);
   if (i >= 50 && i <= 53) blocks[16].elements.push(elements[i].id);
   if (i >= 54 && i <= 58) blocks[17].elements.push(elements[i].id);
   if (i >= 59 && i <= 61) blocks[18].elements.push(elements[i].id);
