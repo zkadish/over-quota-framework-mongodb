@@ -596,8 +596,8 @@ const talktracks = [
   {
     id: uuid.v4(), // 18
     account_id: 'all-accounts',
-    label: `SalesCoach will also enable reps to take down deliveribles they owe after the call by assigning themsleves action items, which automatically creates a post call task.`,
-    value: `SalesCoach will also enable reps to take down deliveribles they owe after the call by assigning themsleves action items, which automatically creates a post call task.`,
+    label: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
+    value: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
     type: 'talk-track',
     corporate_account_id: '',
     user_account_id: '',
@@ -682,90 +682,34 @@ const battlecards = [
   {
     id: uuid.v4(), // 0
     account_id: 'all-accounts',
-    label: `General Competitive`,
-    type: 'battle-card',
     corporate_id: '',
-    account_id: '',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[0].id,
-      //   label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-      //   value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[1].id,
-      //   label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-      //   value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ]
+    label: `General Competitive`,
+    'talk-tracks': [],
+    type: 'battle-card',
   },
   {
     id: uuid.v4(), // 1
     account_id: 'all-accounts',
     label: `Specific Competitor`,
-    type: 'battle-card',
     corporate_id: '',
-    account_id: '',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[2].id,
-      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[3].id,
-      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[4].id,
-      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[5].id,
-      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ]
+    'talk-tracks': [],
+    type: 'battle-card',
   },
   {
     id: uuid.v4(), // 2
     account_id: 'all-accounts',
     label: `Customer Story`,
-    type: 'battle-card',
     corporate_id: '',
-    account_id: '',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[6].id,
-      //   label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-      //   value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
+    type: 'battle-card',
   },
   {
     id: uuid.v4(), // 3
     account_id: 'all-accounts',
-    label: `Security`,
-    type: 'battle-card',
     corporate_id: '',
-    account_id: '',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[7].id,
-      //   label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-      //   value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-      //   type: 'talk-track',
-      // }
-    ],
+    label: `Security`,
+    'talk-tracks': [],
+    type: 'battle-card',
   }
 ];
 
@@ -783,83 +727,83 @@ db.createCollection('talktracks');
 db.talktracks.insert(talktracks);
 
 // BATTLE CARD ELEMENTS
-const battleCardElements = [
-  {
-    id: talktracks[0].id,
-    container_id: battlecards[0].id,
-    label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-    value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[1].id,
-    container_id: battlecards[0].id,
-    label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-    value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[2].id,
-    container_id: battlecards[1].id,
-    label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-    value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[3].id,
-    container_id: battlecards[1].id,
-    label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-    value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[4].id,
-    container_id: battlecards[1].id,
-    label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-    value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[5].id,
-    container_id: battlecards[1].id,
-    label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-    value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[6].id,
-    container_id: battlecards[2].id,
-    label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-    value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-  {
-    id: talktracks[7].id,
-    container_id: battlecards[3].id,
-    label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-    value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-    type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
-  },
-];
+// const battleCardElements = [
+//   {
+//     id: talktracks[0].id,
+//     container_id: battlecards[0].id,
+//     label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+//     value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[1].id,
+//     container_id: battlecards[0].id,
+//     label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+//     value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[2].id,
+//     container_id: battlecards[1].id,
+//     label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+//     value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[3].id,
+//     container_id: battlecards[1].id,
+//     label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+//     value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[4].id,
+//     container_id: battlecards[1].id,
+//     label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+//     value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[5].id,
+//     container_id: battlecards[1].id,
+//     label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+//     value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[6].id,
+//     container_id: battlecards[2].id,
+//     label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+//     value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+//   {
+//     id: talktracks[7].id,
+//     container_id: battlecards[3].id,
+//     label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
+//     value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
+//     type: 'talk-track',
+//     corporate_account_id: '',
+//     user_account_id: '',
+//   },
+// ];
 
-db.createCollection('battleCardElements');
-db.talktracks.insert(battleCardElements);
+// db.createCollection('battleCardElements');
+// db.talktracks.insert(battleCardElements);
 
 // ELEMENTS
 const elements = [
@@ -1060,42 +1004,38 @@ const elements = [
     // id: talktracks[8].id, // 24
     id: 8, // for provisioning id is talk-tracks index // 24
     container_id: blocks[6].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 9, // 25
     container_id: blocks[6].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 10, // 26
     container_id: blocks[6].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 11, // 27
     container_id: blocks[6].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(),  // 28
@@ -1148,12 +1088,11 @@ const elements = [
   {
     id: 12, // 34  // why is this talk-track a loner
     container_id: blocks[8].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
     value: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 35
@@ -1172,68 +1111,66 @@ const elements = [
     type: 'notes-field',
   },
   {
-    id: battlecards[0].id, // 37
+    id: 0, // 37
     container_id: blocks[11].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: 'General Competitive',
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[0].id,
-        account_id: 'all-accounts',
-        label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-        value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[1].id,
-        account_id: 'all-accounts',
-        label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-        value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-        type: 'talk-track',
-      },
-    ]
+      // {
+      //   id: talktracks[0].id,
+      //   account_id: 'all-accounts',
+      //   label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+      //   value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[1].id,
+      //   account_id: 'all-accounts',
+      //   label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+      //   value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+      //   type: 'talk-track',
+      // },
+    ],
+    type: 'battle-card',
   },
   {
-    id: battlecards[1].id,  // 38
+    id: 1,  // 38
     container_id: blocks[11].id,
+    corporate_id: '',
     account_id: 'all-accounts', // element index 38
     label: 'Specific Competitor',
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[2].id,
-        account_id: 'all-accounts',
-        label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-        value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[3].id,
-        account_id: 'all-accounts',
-        label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-        value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[4].id,
-        account_id: 'all-accounts',
-        label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-        value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[5].id,
-        account_id: 'all-accounts',
-        label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-        value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-        type: 'talk-track',
-      },
-    ]
+      // {
+      //   id: talktracks[2].id,
+      //   account_id: 'all-accounts',
+      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[3].id,
+      //   account_id: 'all-accounts',
+      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[4].id,
+      //   account_id: 'all-accounts',
+      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[5].id,
+      //   account_id: 'all-accounts',
+      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+      //   type: 'talk-track',
+      // },
+    ],
+    type: 'battle-card',
   },
   {
     id: uuid.v4(), // 39
@@ -1399,22 +1336,20 @@ const elements = [
   {
     id: 13, // 59
     container_id: blocks[18].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
     value: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 14, // 60
     container_id: blocks[18].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
     value: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 61
@@ -1467,42 +1402,38 @@ const elements = [
   {
     id: 8, // 67
     container_id: blocks[20].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 9, // 68
     container_id: blocks[20].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 10, // 69
     container_id: blocks[20].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 11, // 70
     container_id: blocks[20].id,
+    corporate_id: '',
     account_id: 'all-accounts',
-    label: `This approach has a big impact because studies show that companies who coach reps reguraily generate 17% more revenue.`,
-    value: `This approach has a big impact because studies show that companies who coach reps reguraily generate 17% more revenue.`,
+    label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
+    value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 71
@@ -1555,22 +1486,20 @@ const elements = [
   {
     id: 24, // 77
     container_id: blocks[22].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
     value: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 25, // 78
     container_id: blocks[22].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
     value: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 79
@@ -1597,104 +1526,100 @@ const elements = [
     type: 'notes-field',
   },
   {
-    id: battlecards[0].id, // 82
+    id: 0, // 82
     container_id: blocks[25].id,
+    corporate_id: '',
     account_id: 'all-accounts', // element index 81
     label: 'General Competitive',
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[0].id,
-        account_id: 'all-accounts',
-        label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-        value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[1].id,
-        account_id: 'all-accounts',
-        label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-        value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-        type: 'talk-track',
-      },
-    ]
+      // {
+      //   id: talktracks[0].id,
+      //   account_id: 'all-accounts',
+      //   label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+      //   value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[1].id,
+      //   account_id: 'all-accounts',
+      //   label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+      //   value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
+      //   type: 'talk-track',
+      // },
+    ],
+    type: 'battle-card',
   },
   {
-    id: battlecards[1].id, // 83
+    id: 1, // 83
     container_id: blocks[25].id,
+    corporate_id: '',
     account_id: 'all-accounts', // element index 82
     label: 'Specific Competitor',
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[2].id,
-        account_id: 'all-accounts',
-        label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-        value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[3].id,
-        account_id: 'all-accounts',
-        label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-        value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[4].id,
-        account_id: 'all-accounts',
-        label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-        value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-        type: 'talk-track',
-      },
-      {
-        id: talktracks[5].id,
-        account_id: 'all-accounts',
-        label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-        value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-        type: 'talk-track',
-      },
-    ]
+      // {
+      //   id: talktracks[2].id,
+      //   account_id: 'all-accounts',
+      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[3].id,
+      //   account_id: 'all-accounts',
+      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[4].id,
+      //   account_id: 'all-accounts',
+      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+      //   type: 'talk-track',
+      // },
+      // {
+      //   id: talktracks[5].id,
+      //   account_id: 'all-accounts',
+      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+      //   type: 'talk-track',
+      // },
+    ],
+    type: 'battle-card',
   },
   {
-    id: battlecards[2].id, // 84
+    id: 2, // 84
     container_id: blocks[25].id,
+    corporate_id: '',
     account_id: 'all-accounts', // element index 83
     label: 'Customer Story',
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[6].id,
-        account_id: 'all-accounts',
-        label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-        value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-        type: 'talk-track',
-      },
+      // {
+      //   id: talktracks[6].id,
+      //   account_id: 'all-accounts',
+      //   label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+      //   value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+      //   type: 'talk-track',
+      // },
     ],
+    type: 'battle-card',
   },
   {
-    id: battlecards[3].id, // 85
+    id: 3, // 85
     container_id: blocks[25].id,
+    corporate_id: '',
     account_id: 'all-accounts', // element index 84
     label: 'Security',
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[7].id,
-        account_id: 'all-accounts',
-        label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-        value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-        type: 'talk-track',
-      }
+      // {
+      //   id: talktracks[7].id,
+      //   account_id: 'all-accounts',
+      //   label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
+      //   value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
+      //   type: 'talk-track',
+      // }
     ],
+    type: 'battle-card',
   },
   {
     id: uuid.v4(), // 86
@@ -1916,62 +1841,56 @@ const elements = [
   {
     id: 26, // 113
     container_id: blocks[33].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
     value: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 27, // 114
     container_id: blocks[33].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
     value: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 8, // 115
     container_id: blocks[33].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 9, // 116
     container_id: blocks[33].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 10, // 117
     container_id: blocks[33].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 11, // 118
     container_id: blocks[33].id,
+    corporate_id: '',
     account_id: 'all-accounts',
-    label: `This approach has a big impact because studies show that companies who coach reps reguraily generate 17% more revenue.`,
-    value: `This approach has a big impact because studies show that companies who coach reps reguraily generate 17% more revenue.`,
+    label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
+    value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 119
@@ -1992,12 +1911,11 @@ const elements = [
   {
     id: 15, // 121
     container_id: blocks[34].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
     value: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 122
@@ -2010,22 +1928,20 @@ const elements = [
   {
     id: 16, // 123
     container_id: blocks[34].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Let's fast forward, and say it's time for this call and launch salescoach.`,
     value: `Let's fast forward, and say it's time for this call and launch salescoach.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 17, // 124
     container_id: blocks[34].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
     value: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 125
@@ -2038,22 +1954,20 @@ const elements = [
   {
     id: 18, // 126
     container_id: blocks[35].id,
+    corporate_id: '',
     account_id: 'all-accounts',
-    label: `SalesCoach will also enable reps to take down deliveribles they owe after the call by assigning themsleves action items, which automatically creates a post call task.`,
-    value: `SalesCoach will also enable reps to take down deliveribles they owe after the call by assigning themsleves action items, which automatically creates a post call task.`,
+    label: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
+    value: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 19, // 127
     container_id: blocks[36].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
     value: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 128
@@ -2074,42 +1988,38 @@ const elements = [
   {
     id: 20, // 130
     container_id: blocks[37].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
     value: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 21, // 131
     container_id: blocks[37].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `This is completely customizable and is a point and click set up.`,
     value: `This is completely customizable and is a point and click set up.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 22, // 132
     container_id: blocks[38].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
     value: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: 23, // 133
     container_id: blocks[38].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
     value: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
   },
   {
     id: uuid.v4(), // 134
@@ -2136,64 +2046,62 @@ const elements = [
     type: 'notes-field',
   },
   {
-    id: battlecards[1].id, // 137
+    id: 1, // 137
     container_id: blocks[41].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Specific Competitor`,
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[2].id,
-        account_id: 'all-accounts',
-        label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-        value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-        type: 'talk-track',
-        containers: [],
-      },
-      {
-        id: talktracks[3].id,
-        account_id: 'all-accounts',
-        label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-        value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-        type: 'talk-track',
-        containers: [],
-      },
-      {
-        id: talktracks[4].id,
-        account_id: 'all-accounts',
-        label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-        value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-        type: 'talk-track',
-        containers: [],
-      },
-      {
-        id: talktracks[5].id,
-        account_id: 'all-accounts',
-        label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-        value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-        type: 'talk-track',
-      },
-    ]
+      // {
+      //   id: talktracks[2].id,
+      //   account_id: 'all-accounts',
+      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
+      //   type: 'talk-track',
+      //   containers: [],
+      // },
+      // {
+      //   id: talktracks[3].id,
+      //   account_id: 'all-accounts',
+      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
+      //   type: 'talk-track',
+      //   containers: [],
+      // },
+      // {
+      //   id: talktracks[4].id,
+      //   account_id: 'all-accounts',
+      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
+      //   type: 'talk-track',
+      //   containers: [],
+      // },
+      // {
+      //   id: talktracks[5].id,
+      //   account_id: 'all-accounts',
+      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
+      //   type: 'talk-track',
+      // },
+    ],
+    type: 'battle-card',
   },
   {
-    id: battlecards[3].id, // 138
+    id: 3, // 138
     container_id: blocks[41].id,
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Customer Story`,
-    type: 'battle-card',
-    corporate_account_id: '',
-    user_account_id: '',
     'talk-tracks': [
-      {
-        id: talktracks[6].id,
-        account_id: 'all-accounts',
-        label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-        value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-        type: 'talk-track',
-      },
+      // {
+      //   id: talktracks[6].id,
+      //   account_id: 'all-accounts',
+      //   label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+      //   value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
+      //   type: 'talk-track',
+      // },
     ],
+    type: 'battle-card',
   },
   {
     id: uuid.v4(), // 139
