@@ -1,6 +1,8 @@
 load('../node_modules/js-uuid/js-uuid.js');
 const uuid = UUID();
 
+const cleanId = () => uuid.v4().replace(/-/g, '');
+
 db.createUser(
   {
     user: 'frameworkuser',
@@ -31,32 +33,41 @@ db.createUser(
 const templates = [
   {
     id: uuid.v4(),
-    label: 'Inbound Discovery',
+    corporate_id: '',
     account_id: 'all-accounts',
+    label: 'Inbound Discovery',
     blocks: [],
+    system: true,
   },
   {
     id: uuid.v4(),
+    corporate_id: '',
     label: 'Outbound Discovery',
     account_id: 'all-accounts',
     blocks: [],
+    system: true,
   },
   {
     id: uuid.v4(),
+    corporate_id: '',
     label: 'Demo Loop: Low Quota',
     account_id: 'all-accounts',
     blocks: [],
+    system: true,
   },
 ];
 
 const templateorders = [
   {
+    id: uuid.v4(),
+    account_id: 'all-accounts',
+    corporate_id: null,
     templates: [
       templates[0].id,
       templates[1].id,
       templates[2].id,
     ],
-    account_id: 'all-accounts',
+    system: true,
   },
 ];
 
@@ -65,352 +76,392 @@ db.templateorders.insert(templateorders);
 
 // BLOCKS
 const blocks = [
-  // Inbound Discovery
-  {
+  { // Inbound Discovery
+    id: uuid.v4(), // 0
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Pre-call Action Items',
     type: 'pre-call',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 1
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Attendees',
     type: 'attendees',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 2
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Pre-call Company Research',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 3
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Pre-call Contact Research',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 4
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Agenda',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 5
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Discovery 1',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 6
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Value Proposition',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 7
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Discovery 2',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 8
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Next Steps',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 9
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Actions',
     type: 'actions',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 10
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Notes',
     type: 'notes',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
-    container_id: templates[0].id,
     id: uuid.v4(), // 11
+    container_id: templates[0].id,
     label: 'Battle Cards',
     type: 'battle-cards',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 12
     container_id: templates[0].id,
-    id: uuid.v4(),
     label: 'Post-call Action Item',
     type: 'post-call',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 13
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Pre-call Action Items',
     type: 'pre-call',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
-  // Outbound Discovery
-  {
+  { // Outbound Discovery
+    id: uuid.v4(), // 14
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Attendees',
     type: 'attendees',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 15
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Pre-call Company Research',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 16
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Pre-call Contact Research',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 17
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Agenda',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 18
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Validate',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 19
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Discovery 1',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 20
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Value Proposition',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 21
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Discovery 2',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 22
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Next Steps',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 23
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Actions',
     type: 'actions',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 24
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Notes',
     type: 'notes',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 25
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Battle Cards',
     type: 'battle-cards',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 26
     container_id: templates[1].id,
-    id: uuid.v4(),
     label: 'Post-call Action Item',
     type: 'post-call',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
-  // Demo Loop: Low Quota'
-  {
+  { // Demo Loop: Low Quota'
+    id: uuid.v4(), // 27
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Pre-call Action Items',
     type: 'pre-call',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 28
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Attendees',
     type: 'attendees',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 29
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Pre-call Company Research',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 30
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Pre-call Contact Research',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 31
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Agenda',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 32
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Recap: What We Know',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 33
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Demo Primer',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 34
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Demo Pre-call Platform',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 35
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Demo SalesCoach',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 36
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Demo Post-call Platform',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 37
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Demo Framework Builder',
     type: 'default',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 38
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Next Steps',
     type: 'talk-track',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 39
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Actions',
     type: 'actions',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 40
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Notes',
     type: 'notes',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 41
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Battle Cards',
     type: 'battle-cards',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   },
   {
+    id: uuid.v4(), // 42
     container_id: templates[2].id,
-    id: uuid.v4(),
     label: 'Post-call Action Items',
     type: 'post-call',
     account_id: 'all-accounts',
     elements: [],
+    system: true,
   }
 ];
 
@@ -433,247 +484,255 @@ db.templates.insert(templates);
 const talktracks = [
   {
     id: uuid.v4(), // 0
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
     value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 1
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
     value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 2
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
     value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 3
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
     value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 4
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
     value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 5
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
     value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 6
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
     value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   { // index 7
     id: uuid.v4(), // 7
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
     value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 8
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 9
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 10
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 11
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 12
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
     value: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 13
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
     value: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 14
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
     value: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 15
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
     value: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 16
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Let's fast forward, and say it's time for this call and launch salescoach.`,
     value: `Let's fast forward, and say it's time for this call and launch salescoach.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 17
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
     value: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 18
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
     value: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 19
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
     value: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 20
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
     value: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 21
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `This is completely customizable and is a point and click set up.`,
     value: `This is completely customizable and is a point and click set up.`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 22
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
     value: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 23
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
     value: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
     type: 'talk-track',
-    corporate_account_id: '',
-    user_account_id: '',
+    system: true,
   },
   {
     id: uuid.v4(), // 24
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
     value: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 25
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
     value: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 26
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
     value: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 27
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
     value: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
     type: 'talk-track',
+    system: true,
   },
 ];
 
@@ -681,35 +740,39 @@ const talktracks = [
 const battlecards = [
   {
     id: uuid.v4(), // 0
-    account_id: 'all-accounts',
     corporate_id: '',
+    account_id: 'all-accounts',
     label: `General Competitive`,
     'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: uuid.v4(), // 1
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Specific Competitor`,
-    corporate_id: '',
     'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: uuid.v4(), // 2
+    corporate_id: '',
     account_id: 'all-accounts',
     label: `Customer Story`,
-    corporate_id: '',
     'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: uuid.v4(), // 3
-    account_id: 'all-accounts',
     corporate_id: '',
+    account_id: 'all-accounts',
     label: `Security`,
     'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   }
 ];
 
@@ -726,95 +789,16 @@ db.battlecards.insert(battlecards);
 db.createCollection('talktracks');
 db.talktracks.insert(talktracks);
 
-// BATTLE CARD ELEMENTS
-// const battleCardElements = [
-//   {
-//     id: talktracks[0].id,
-//     container_id: battlecards[0].id,
-//     label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-//     value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[1].id,
-//     container_id: battlecards[0].id,
-//     label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-//     value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[2].id,
-//     container_id: battlecards[1].id,
-//     label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-//     value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[3].id,
-//     container_id: battlecards[1].id,
-//     label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-//     value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[4].id,
-//     container_id: battlecards[1].id,
-//     label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-//     value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[5].id,
-//     container_id: battlecards[1].id,
-//     label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-//     value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[6].id,
-//     container_id: battlecards[2].id,
-//     label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-//     value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-//   {
-//     id: talktracks[7].id,
-//     container_id: battlecards[3].id,
-//     label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-//     value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-//     type: 'talk-track',
-//     corporate_account_id: '',
-//     user_account_id: '',
-//   },
-// ];
-
-// db.createCollection('battleCardElements');
-// db.talktracks.insert(battleCardElements);
-
 // ELEMENTS
 const elements = [
-  // Inbound Discovery
-  {
+  { // Inbound Discovery
     id: uuid.v4(), // 0
     container_id: blocks[0].id,
     account_id: 'all-accounts',
     label: 'Send agenda/soft reminder email',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 1
@@ -823,6 +807,7 @@ const elements = [
     label: 'Connect on LinkedIn',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 2
@@ -831,6 +816,7 @@ const elements = [
     label: 'Attendees',
     value: false,
     type: 'attendees',
+    system: true,
   },
   {
     id: uuid.v4(), // 3
@@ -839,6 +825,7 @@ const elements = [
     label: 'Company Name',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 4
@@ -847,6 +834,7 @@ const elements = [
     label: 'Industry',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 5
@@ -855,6 +843,7 @@ const elements = [
     label: 'Current Event',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 6
@@ -863,6 +852,7 @@ const elements = [
     label: 'Number of reps on sales team',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 7
@@ -871,6 +861,7 @@ const elements = [
     label: 'Techstack',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 8
@@ -879,6 +870,7 @@ const elements = [
     label: 'Name',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 9
@@ -887,6 +879,7 @@ const elements = [
     label: 'Title',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 10
@@ -895,6 +888,7 @@ const elements = [
     label: 'Persona pain points',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 11
@@ -903,6 +897,7 @@ const elements = [
     label: 'Other members of their team to involve later?',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 12
@@ -911,6 +906,7 @@ const elements = [
     label: 'Time check',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 13
@@ -919,6 +915,7 @@ const elements = [
     label: 'Discuss what prompted your interest',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 14
@@ -927,6 +924,7 @@ const elements = [
     label: 'I can share more about SkillUp',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 15
@@ -935,6 +933,7 @@ const elements = [
     label: 'If there is a fit, we talk next steps',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 16
@@ -943,6 +942,7 @@ const elements = [
     label: `Other sales leaders come to us because they have a problem with low or inconsistent quota attainment across their team. I'd be curious to learn, what prompted your interest in SkillUp?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 17
@@ -951,6 +951,7 @@ const elements = [
     label: `How long has that been a challenge for you?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 18
@@ -959,6 +960,7 @@ const elements = [
     label: `We typically find low quota attainment stems from not having a proven sales framework for reps to use or little time spent coaching reps so they can adopt it. Specific to your sales process, what do you feel is preventing your team from hitting quota?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 19
@@ -967,6 +969,7 @@ const elements = [
     label: `What kinds of things have you tried or implemented already to address this?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 20
@@ -975,6 +978,7 @@ const elements = [
     label: `Sales framework? How did you build it and how do you share it across the team? How do you measure adoption?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 21
@@ -983,6 +987,7 @@ const elements = [
     label: `Coaching? How and how much time does a manager spend/week with a rep coaching?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 22
@@ -991,6 +996,7 @@ const elements = [
     label: `Why weren't those attempts successful?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 23
@@ -999,16 +1005,17 @@ const elements = [
     label: `Can you help me understand the makeup of the team (#reps/managers/etc)?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
-    // id: talktracks[8].id, // 24
-    id: 8, // for provisioning id is talk-tracks index // 24
+    id: 8, // 24 - id is talk-tracks index used while provisioning
     container_id: blocks[6].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 9, // 25
@@ -1018,6 +1025,7 @@ const elements = [
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 10, // 26
@@ -1027,6 +1035,7 @@ const elements = [
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 11, // 27
@@ -1036,22 +1045,25 @@ const elements = [
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
+    system: true,
   },
   {
-    id: uuid.v4(),  // 28
+    id: uuid.v4(), // 28
     container_id: blocks[6].id,
     account_id: 'all-accounts',
     label: `Increased quota attainment is the benefit we talk about the most, but there are others like improved deal visibility, forecast accuracy, and new rep onboarding. Do you see room for improvement in any of those areas?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
-    id: uuid.v4(),  // 29
+    id: uuid.v4(), // 29
     container_id: blocks[7].id,
     account_id: 'all-accounts',
     label: `How do you think your team would react to having this guidance and support to improve their ability to hit quota?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 30
@@ -1060,6 +1072,7 @@ const elements = [
     label: `You have lot's of priorities. Where would you say this sits on your overall priority list?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 31
@@ -1068,6 +1081,7 @@ const elements = [
     label: `Being such a high priority, when are you hoping to have a solution in place by?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 32
@@ -1076,6 +1090,7 @@ const elements = [
     label: `I'm curious, is there a particular reason we're shooting for that date?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 33
@@ -1084,15 +1099,17 @@ const elements = [
     label: `So I can best support your evaluation and decision, can you walk me through how you will decide which solution is best?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
-    id: 12, // 34  // why is this talk-track a loner
+    id: 12, // 34
     container_id: blocks[8].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
     value: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 35
@@ -1101,6 +1118,7 @@ const elements = [
     label: 'actions',
     value: '',
     type: 'actions',
+    system: true,
   },
   {
     id: uuid.v4(), // 36
@@ -1109,6 +1127,7 @@ const elements = [
     label: 'notes',
     value: '',
     type: 'notes-field',
+    system: true,
   },
   {
     id: 0, // 37
@@ -1116,61 +1135,19 @@ const elements = [
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'General Competitive',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[0].id,
-      //   account_id: 'all-accounts',
-      //   label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-      //   value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[1].id,
-      //   account_id: 'all-accounts',
-      //   label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-      //   value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: 1,  // 38
     container_id: blocks[11].id,
     corporate_id: '',
-    account_id: 'all-accounts', // element index 38
+    account_id: 'all-accounts',
     label: 'Specific Competitor',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[2].id,
-      //   account_id: 'all-accounts',
-      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[3].id,
-      //   account_id: 'all-accounts',
-      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[4].id,
-      //   account_id: 'all-accounts',
-      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[5].id,
-      //   account_id: 'all-accounts',
-      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: uuid.v4(), // 39
@@ -1179,14 +1156,16 @@ const elements = [
     label: `Send followup email summary & resources`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
-    id: uuid.v4(),  // 40
+    id: uuid.v4(), // 40
     container_id: blocks[12].id,
     account_id: 'all-accounts',
     label: `Update Opportunity Details`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 41
@@ -1195,15 +1174,16 @@ const elements = [
     label: `Add notes to CRM`,
     value: false,
     type: 'check-list',
+    system: true,
   },
-  // Outbound Discovery
-  {
+  { // Outbound Discovery
     id: uuid.v4(), // 42
     container_id: blocks[13].id,
     account_id: 'all-accounts',
     label: 'Send agenda/soft reminder email',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 43
@@ -1212,14 +1192,16 @@ const elements = [
     label: `Fill in the 'validate research' information`,
     value: false,
     type: 'check-list',
+    system: true,
   },
-  {
+  { // TODO: Attendees may not need element representation, look into removing
     id: uuid.v4(), // 44
     container_id: blocks[14].id,
-    account_id: 'all-accounts',  // note: this may not be needed, look into removing
+    account_id: 'all-accounts',
     label: 'Attendees',
     value: false,
     type: 'attendees',
+    system: true,
   },
   {
     id: uuid.v4(), // 45
@@ -1228,6 +1210,7 @@ const elements = [
     label: 'Company Name',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 46
@@ -1236,6 +1219,7 @@ const elements = [
     label: 'Industry',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 47
@@ -1244,6 +1228,7 @@ const elements = [
     label: 'Current Event',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 48
@@ -1252,6 +1237,7 @@ const elements = [
     label: 'Number of reps on sales team',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 49
@@ -1260,6 +1246,7 @@ const elements = [
     label: 'Techstack',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 50
@@ -1268,6 +1255,7 @@ const elements = [
     label: 'Name',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 51
@@ -1276,6 +1264,7 @@ const elements = [
     label: 'Title',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 52
@@ -1284,6 +1273,7 @@ const elements = [
     label: 'Persona pain points',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 53
@@ -1292,6 +1282,7 @@ const elements = [
     label: 'Other members of their team to involve later?',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 54
@@ -1300,6 +1291,7 @@ const elements = [
     label: 'Time check',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 55
@@ -1308,6 +1300,7 @@ const elements = [
     label: `Share why we reached out and see if you're experiencing the common challenges we help with`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 56
@@ -1316,6 +1309,7 @@ const elements = [
     label: 'Provide an overview on how we can help',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 57
@@ -1324,6 +1318,7 @@ const elements = [
     label: 'If it make sense, talk next steps',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 58
@@ -1332,6 +1327,7 @@ const elements = [
     label: 'Fair? Anything you want to add?',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: 13, // 59
@@ -1341,6 +1337,7 @@ const elements = [
     label: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
     value: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 14, // 60
@@ -1350,6 +1347,7 @@ const elements = [
     label: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
     value: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 61
@@ -1358,6 +1356,7 @@ const elements = [
     label: `Other sales leaders we work with experience long new rep ramp times, poor adoption of the sales methodology, and low quota attainment. Are you challenged in any of these or perhaps other areas?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 62
@@ -1366,6 +1365,7 @@ const elements = [
     label: `How long has that been a challenge?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 63
@@ -1374,6 +1374,7 @@ const elements = [
     label: `What do you think is the main cause of it?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 64
@@ -1382,6 +1383,7 @@ const elements = [
     label: `What do you feel is the biggest impacted by not addressing the challenge?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 65
@@ -1390,6 +1392,7 @@ const elements = [
     label: `What have you tried to address it?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 66
@@ -1398,6 +1401,7 @@ const elements = [
     label: `What sort of tools and trainings have you implemented?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 8, // 67
@@ -1407,6 +1411,7 @@ const elements = [
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 9, // 68
@@ -1416,6 +1421,7 @@ const elements = [
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 10, // 69
@@ -1425,6 +1431,7 @@ const elements = [
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 11, // 70
@@ -1434,6 +1441,7 @@ const elements = [
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 71
@@ -1442,6 +1450,7 @@ const elements = [
     label: `Increased quota attainment is the benefit we talk about the most, but there are others like improved deal visibility, forecast accuarcy, and new rep onboarding. Do you see room for improvement in any of those areas?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 72
@@ -1450,6 +1459,7 @@ const elements = [
     label: `How do you think your team would react to having this guidance and support to improve their ability to hit quota?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 73
@@ -1458,6 +1468,7 @@ const elements = [
     label: `I know we contacted you and this may not have been on your immediate priority list, but how important would you say this is for you to get figured out?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 74
@@ -1466,6 +1477,7 @@ const elements = [
     label: `Being such a high priority, when are you looking to have a solution in place by?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 75
@@ -1474,6 +1486,7 @@ const elements = [
     label: `I'm curious, is there a particular reason for that timeline?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 76
@@ -1482,6 +1495,7 @@ const elements = [
     label: `How have you evaluated solutions like ours in the past?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 24, // 77
@@ -1491,6 +1505,7 @@ const elements = [
     label: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
     value: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 25, // 78
@@ -1500,6 +1515,7 @@ const elements = [
     label: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
     value: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 79
@@ -1508,118 +1524,65 @@ const elements = [
     label: `What has the process looked like in the past for you to evaluate, decide, and secure budget for a tool like ours?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
-  {
+  { // TODO: Actions may not need element representation, look into removing
     id: uuid.v4(), // 80
     container_id: blocks[23].id,
-    account_id: 'all-accounts', // note: this may not be needed, look into removing
+    account_id: 'all-accounts',
     label: 'actions',
     value: '',
     type: 'actions',
+    system: true,
   },
-  {
+  { // TODO: Notes may not need element representation, look into removing
     id: uuid.v4(), // 81
     container_id: blocks[24].id,
-    account_id: 'all-accounts', // note: this may not be needed, look into removing
+    account_id: 'all-accounts',
     label: 'notes',
     value: '',
     type: 'notes-field',
+    system: true,
   },
   {
     id: 0, // 82
     container_id: blocks[25].id,
     corporate_id: '',
-    account_id: 'all-accounts', // element index 81
+    account_id: 'all-accounts',
     label: 'General Competitive',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[0].id,
-      //   account_id: 'all-accounts',
-      //   label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-      //   value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[1].id,
-      //   account_id: 'all-accounts',
-      //   label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-      //   value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: 1, // 83
     container_id: blocks[25].id,
     corporate_id: '',
-    account_id: 'all-accounts', // element index 82
+    account_id: 'all-accounts',
     label: 'Specific Competitor',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[2].id,
-      //   account_id: 'all-accounts',
-      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[3].id,
-      //   account_id: 'all-accounts',
-      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[4].id,
-      //   account_id: 'all-accounts',
-      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   type: 'talk-track',
-      // },
-      // {
-      //   id: talktracks[5].id,
-      //   account_id: 'all-accounts',
-      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: 2, // 84
     container_id: blocks[25].id,
     corporate_id: '',
-    account_id: 'all-accounts', // element index 83
+    account_id: 'all-accounts',
     label: 'Customer Story',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[6].id,
-      //   account_id: 'all-accounts',
-      //   label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-      //   value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: 3, // 85
     container_id: blocks[25].id,
     corporate_id: '',
-    account_id: 'all-accounts', // element index 84
+    account_id: 'all-accounts',
     label: 'Security',
-    'talk-tracks': [
-      // {
-      //   id: talktracks[7].id,
-      //   account_id: 'all-accounts',
-      //   label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-      //   value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-      //   type: 'talk-track',
-      // }
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: uuid.v4(), // 86
@@ -1628,6 +1591,7 @@ const elements = [
     label: `Send followup email summary & resources`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 87
@@ -1636,6 +1600,7 @@ const elements = [
     label: `Connect on LinkedIn`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 88
@@ -1644,15 +1609,16 @@ const elements = [
     label: `Overline Executive Sponsor email?`,
     value: false,
     type: 'check-list',
+    system: true,
   },
-  // Demo Loop: Low Quota
-  {
+  { // Demo Loop: Low Quota
     id: uuid.v4(), // 89
     container_id: blocks[27].id,
     account_id: 'all-accounts',
     label: `Send agenda/soft reminder email (include use case specific case study)`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 90
@@ -1661,6 +1627,7 @@ const elements = [
     label: `Confirm LinkedIn connection (view their LinkedIn & engage)`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 91
@@ -1669,14 +1636,16 @@ const elements = [
     label: `Fill in: Recap: What We Know`,
     value: false,
     type: 'check-list',
+    system: true,
   },
-  {
+  { // TODO: Attendees may not need element representation, look into removing.
     id: uuid.v4(), // 92
     container_id: blocks[28].id,
-    account_id: 'all-accounts',  // note: this may not be needed, look into removing
+    account_id: 'all-accounts',  
     label: 'Attendees',
     value: false,
     type: 'attendees',
+    system: true,
   },
   {
     id: uuid.v4(), // 93
@@ -1685,6 +1654,7 @@ const elements = [
     label: 'Company Name',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 94
@@ -1693,6 +1663,7 @@ const elements = [
     label: 'Industry',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 95
@@ -1701,6 +1672,7 @@ const elements = [
     label: 'Current Event',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 96
@@ -1709,6 +1681,7 @@ const elements = [
     label: 'Number of reps on sales team',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 97
@@ -1717,6 +1690,7 @@ const elements = [
     label: 'Techstack',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 98
@@ -1725,6 +1699,7 @@ const elements = [
     label: 'Name',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 99
@@ -1733,6 +1708,7 @@ const elements = [
     label: 'Title',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 100
@@ -1741,6 +1717,7 @@ const elements = [
     label: 'Persona pain points',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 101
@@ -1749,6 +1726,7 @@ const elements = [
     label: 'Other members of their team to involve later?',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 102
@@ -1757,6 +1735,7 @@ const elements = [
     label: 'Time check',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 103
@@ -1765,6 +1744,7 @@ const elements = [
     label: `Quick recap of our conversation last time`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 104
@@ -1773,6 +1753,7 @@ const elements = [
     label: `Jump into a demo specific to how we help with increasing quota attainment`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 105
@@ -1781,6 +1762,7 @@ const elements = [
     label: 'Talk next steps and who needs to be included - fair?',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 106
@@ -1789,6 +1771,7 @@ const elements = [
     label: 'Anything you would like to add?',
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 107
@@ -1797,6 +1780,7 @@ const elements = [
     label: 'Main point: Low quota attainment',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 108
@@ -1805,6 +1789,7 @@ const elements = [
     label: 'Root Causes',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 109
@@ -1813,6 +1798,7 @@ const elements = [
     label: 'Significant Impact it has',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 110
@@ -1821,6 +1807,7 @@ const elements = [
     label: 'Timeline to Resolve',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 111
@@ -1829,6 +1816,7 @@ const elements = [
     label: 'Decision/Evaluation Process',
     value: '',
     type: 'research-field',
+    system: true,
   },
   {
     id: uuid.v4(), // 112
@@ -1837,6 +1825,7 @@ const elements = [
     label: 'Has any of this changed or is anything missing?',
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 26, // 113
@@ -1846,6 +1835,7 @@ const elements = [
     label: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
     value: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 27, // 114
@@ -1855,6 +1845,7 @@ const elements = [
     label: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
     value: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 8, // 115
@@ -1864,6 +1855,7 @@ const elements = [
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     value: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 9, // 116
@@ -1873,6 +1865,7 @@ const elements = [
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     value: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 10, // 117
@@ -1882,6 +1875,7 @@ const elements = [
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     value: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 11, // 118
@@ -1891,6 +1885,7 @@ const elements = [
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     value: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 119
@@ -1899,6 +1894,7 @@ const elements = [
     label: `If I'm rep, I'll login to Skill Up to before my calls to begin preparing, where do your reps take notes and prepare for calls today?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 120
@@ -1907,6 +1903,7 @@ const elements = [
     label: 'How often do those notes make it into CRM?',
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 15, // 121
@@ -1916,6 +1913,7 @@ const elements = [
     label: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
     value: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 122
@@ -1924,6 +1922,7 @@ const elements = [
     label: `We have some examples here, but I'd be curious, what types of things can your reps do before their calls to set themselves up for success?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 16, // 123
@@ -1933,6 +1932,7 @@ const elements = [
     label: `Let's fast forward, and say it's time for this call and launch salescoach.`,
     value: `Let's fast forward, and say it's time for this call and launch salescoach.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 17, // 124
@@ -1942,6 +1942,7 @@ const elements = [
     label: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
     value: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 125
@@ -1950,6 +1951,7 @@ const elements = [
     label: `Have you ever been reviewing your forecast and found a deal forecasted but missing critical info like timeline or impact? Using SalesCoach your reps will always remember to ask those questions.`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 18, // 126
@@ -1959,6 +1961,7 @@ const elements = [
     label: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
     value: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 19, // 127
@@ -1968,6 +1971,7 @@ const elements = [
     label: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
     value: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 128
@@ -1976,6 +1980,7 @@ const elements = [
     label: `Where have you documented your the various aspects of your sales motion today?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 129
@@ -1984,6 +1989,7 @@ const elements = [
     label: `What has been the feedback from the team on how usable of accessible that is?`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: 20, // 130
@@ -1993,6 +1999,7 @@ const elements = [
     label: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
     value: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 21, // 131
@@ -2002,6 +2009,7 @@ const elements = [
     label: `This is completely customizable and is a point and click set up.`,
     value: `This is completely customizable and is a point and click set up.`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 22, // 132
@@ -2011,6 +2019,7 @@ const elements = [
     label: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
     value: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: 23, // 133
@@ -2020,6 +2029,7 @@ const elements = [
     label: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
     value: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
     type: 'talk-track',
+    system: true,
   },
   {
     id: uuid.v4(), // 134
@@ -2028,6 +2038,7 @@ const elements = [
     label: `Help me understand the things you need to help make a decision.`,
     value: '',
     type: 'question-answer',
+    system: true,
   },
   {
     id: uuid.v4(), // 135
@@ -2036,6 +2047,7 @@ const elements = [
     label: 'actions',
     value: '',
     type: 'actions',
+    system: true,
   },
   {
     id: uuid.v4(), // 136
@@ -2044,6 +2056,7 @@ const elements = [
     label: 'notes',
     value: '',
     type: 'notes-field',
+    system: true,
   },
   {
     id: 1, // 137
@@ -2051,40 +2064,9 @@ const elements = [
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Specific Competitor`,
-    'talk-tracks': [
-      // {
-      //   id: talktracks[2].id,
-      //   account_id: 'all-accounts',
-      //   label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-      //   type: 'talk-track',
-      //   containers: [],
-      // },
-      // {
-      //   id: talktracks[3].id,
-      //   account_id: 'all-accounts',
-      //   label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-      //   type: 'talk-track',
-      //   containers: [],
-      // },
-      // {
-      //   id: talktracks[4].id,
-      //   account_id: 'all-accounts',
-      //   label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-      //   type: 'talk-track',
-      //   containers: [],
-      // },
-      // {
-      //   id: talktracks[5].id,
-      //   account_id: 'all-accounts',
-      //   label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: 3, // 138
@@ -2092,16 +2074,9 @@ const elements = [
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Customer Story`,
-    'talk-tracks': [
-      // {
-      //   id: talktracks[6].id,
-      //   account_id: 'all-accounts',
-      //   label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-      //   value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-      //   type: 'talk-track',
-      // },
-    ],
+    'talk-tracks': [],
     type: 'battle-card',
+    system: true,
   },
   {
     id: uuid.v4(), // 139
@@ -2110,6 +2085,7 @@ const elements = [
     label: `Send followup email & resources`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 140
@@ -2118,6 +2094,7 @@ const elements = [
     label: `Verify connect on LinkedIn (view and engage)`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 141
@@ -2126,6 +2103,7 @@ const elements = [
     label: `Overline Executive Sponsor email?`,
     value: false,
     type: 'check-list',
+    system: true,
   },
   {
     id: uuid.v4(), // 142
@@ -2134,10 +2112,11 @@ const elements = [
     label: `Introduction email to team leads + resources for them?`,
     value: false,
     type: 'check-list',
+    system: true,
   }
 ];
 
-// element loop
+// add elements order to blocks
 for (let i = 0; i < elements.length; i++) {
   if (i <= 1) blocks[0].elements.push(elements[i].id);
   if (i === 2) blocks[1].elements.push(elements[i].id);
@@ -2189,66 +2168,3 @@ db.blocks.insert(blocks);
 
 db.createCollection('elements');
 db.elements.insert(elements);
-
-// this is not needed??
-// const battlecardelements = [
-//   {
-//     id: talktracks[0].id,
-//     container_id: battlecards[0].id,
-//     label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-//     value: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[1].id,
-//     container_id: battlecards[0].id,
-//     label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-//     value: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[2].id,
-//     container_id: battlecards[1].id,
-//     label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-//     value: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[3].id,
-//     container_id: battlecards[1].id,
-//     label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-//     value: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[4].id,
-//     container_id: battlecards[1].id,
-//     label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-//     value: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[5].id,
-//     container_id: battlecards[1].id,
-//     label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-//     value: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[6].id,
-//     container_id: battlecards[2].id,
-//     label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-//     value: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
-//     type: 'talk-track',
-//   },
-//   {
-//     id: talktracks[7].id,
-//     container_id: battlecards[3].id,
-//     label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-//     value: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
-//     type: 'talk-track',
-//   }
-// ];
-
-// db.createCollection('battlecardelements');
-// db.battlecardelements.insert(battlecardelements);
