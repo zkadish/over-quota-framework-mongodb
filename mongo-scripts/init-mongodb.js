@@ -2,84 +2,84 @@ load('../node_modules/js-uuid/js-uuid.js');
 const uuid = UUID();
 const cleanId = () => uuid.v4().replace(/-/g, '');
 // TODO: refactor to use UTC time
-const weekday = dateObj => {
-  let day = null;
-  switch (dateObj.getDay()) {
-    case 0:
-      day = 'Sunday';
-      break;
-    case 1:
-      day = 'Monday';
-      break;
-    case 2:
-      day = 'Tuesday';
-      break;
-    case 3:
-      day = 'Wednesday';
-      break;
-    case 4:
-      day = 'Thursday';
-      break;
-    case 5:
-      day = 'Friday';
-      break;
-    default:
-      day = 'Saturday';
-  }
+// const weekday = dateObj => {
+//   let day = null;
+//   switch (dateObj.getDay()) {
+//     case 0:
+//       day = 'Sunday';
+//       break;
+//     case 1:
+//       day = 'Monday';
+//       break;
+//     case 2:
+//       day = 'Tuesday';
+//       break;
+//     case 3:
+//       day = 'Wednesday';
+//       break;
+//     case 4:
+//       day = 'Thursday';
+//       break;
+//     case 5:
+//       day = 'Friday';
+//       break;
+//     default:
+//       day = 'Saturday';
+//   }
 
-  return day;
-};
-const getMonth = dateObj => {
-  let month = null;
-  switch (dateObj.getMonth()) {
-    case 0:
-      month = 'January';
-      break;
-    case 1:
-      month = 'February';
-      break;
-    case 2:
-      month = 'March';
-      break;
-    case 3:
-      month = 'April';
-      break;
-    case 4:
-      month = 'May';
-      break;
-    case 5:
-      month = 'June';
-      break;
-    case 6:
-      month = 'July';
-      break;
-    case 7:
-      month = 'August';
-      break;
-    case 8:
-      month = 'September';
-      break;
-    case 9:
-      month = 'October';
-      break;
-    case 10:
-      month = 'November';
-      break;
-    default:
-      month = 'December';
-  }
-  return month;
-};
-const getTodayOffSet = (offSet = 0) => {
-  const dateObj = new Date();
-  const offSetObj = new Date(dateObj.setDate(dateObj.getDate() + offSet));
-  const date = offSetObj.getDate();
-  const year = offSetObj.getFullYear();
-  return {
-    date: `${weekday(offSetObj)}, ${getMonth(offSetObj)} ${date} ${year}`,
-    dateObj: offSetObj,
-  };
-};
+//   return day;
+// };
+// const getMonth = dateObj => {
+//   let month = null;
+//   switch (dateObj.getMonth()) {
+//     case 0:
+//       month = 'January';
+//       break;
+//     case 1:
+//       month = 'February';
+//       break;
+//     case 2:
+//       month = 'March';
+//       break;
+//     case 3:
+//       month = 'April';
+//       break;
+//     case 4:
+//       month = 'May';
+//       break;
+//     case 5:
+//       month = 'June';
+//       break;
+//     case 6:
+//       month = 'July';
+//       break;
+//     case 7:
+//       month = 'August';
+//       break;
+//     case 8:
+//       month = 'September';
+//       break;
+//     case 9:
+//       month = 'October';
+//       break;
+//     case 10:
+//       month = 'November';
+//       break;
+//     default:
+//       month = 'December';
+//   }
+//   return month;
+// };
+// const getTodayOffSet = (offSet = 0) => {
+//   const dateObj = new Date();
+//   const offSetObj = new Date(dateObj.setDate(dateObj.getDate() + offSet));
+//   const date = offSetObj.getDate();
+//   const year = offSetObj.getFullYear();
+//   return {
+//     date: `${weekday(offSetObj)}, ${getMonth(offSetObj)} ${date} ${year}`,
+//     dateObj: offSetObj,
+//   };
+// };
 
 db.createUser(
   {
@@ -561,7 +561,8 @@ db.templates.insert(templates);
 // TALK_TRACKS
 const talktracks = [
   {
-    id: uuid.v4(), // 0
+    id: '', // 0
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `If you ask our competitors they will most likely tell you:\n- SkillUp is a small startup that might not be around in 6-12 months\n- We don't have AI, ML, or NLP\n- Or we lack enterprise grade security`,
@@ -570,7 +571,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 1
+    id: '', // 1
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Truthfully, we are a small startup, but with such a high demand for this we're growing fast. We have decided not to include AI, ML quite yet (its coming) but we want to nail the best features first and then add intelligence. We do have inherent enterprise security because we have used best in class solutions to build SkillUp.`,
@@ -579,7 +581,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 2
+    id: '', // 2
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Balto - Targeting call centers, not B2B sales orgs which means their approach and platform are slightly misaligned for your specific use case.`,
@@ -588,7 +591,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 3
+    id: '', // 3
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Copilot - Our closest competitor but their solution is similar to a single feature on our platform (battle cards). They do not help support pre or post calls.`,
@@ -597,7 +601,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 4
+    id: '', // 4
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Dooly - Tight integration to SFDC and their mission is to help reps complete data entry to CRM not help you coach. I'm sure you can find some workarounds but they don't have the framework builder like SkillUp.`,
@@ -606,7 +612,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 5
+    id: '', // 5
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Chorus / Gong - These are not competitors. They are call recording and are essential to setting up a winning sales process. They would compliment your use of SkillUp.`,
@@ -615,7 +623,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 6
+    id: '', // 6
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Techsta - Came to us with a win rate of 15%. After implementing and using SkillUp just one quarter they hit a 25% win rate.`,
@@ -624,7 +634,9 @@ const talktracks = [
     system: true,
   },
   { // index 7
-    id: uuid.v4(), // 7
+    id: '', // 7
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `We have used best in class systems to build SkillUp and are continuously doing what we can to improve our security posture. In the meantime, we're happy to complete any security documentation you may have.`,
@@ -633,7 +645,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 8
+    id: '', // 8
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
@@ -642,7 +656,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 9
+    id: '', // 9
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
@@ -651,7 +667,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 10
+    id: '', // 10
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
@@ -660,7 +678,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 11
+    id: '', // 11
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
@@ -669,7 +689,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 12
+    id: '', // 12
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
@@ -678,7 +700,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 13
+    id: '', // 13
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
@@ -687,7 +711,9 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 14
+    id: '', // 14
+    library_id: '',
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
@@ -696,7 +722,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 15
+    id: '', // 15
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
@@ -705,7 +732,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 16
+    id: '', // 16
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Let's fast forward, and say it's time for this call and launch salescoach.`,
@@ -714,7 +742,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 17
+    id: '', // 17
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
@@ -723,7 +752,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 18
+    id: '', // 18
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
@@ -732,7 +762,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 19
+    id: '', // 19
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
@@ -741,7 +772,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 20
+    id: '', // 20
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
@@ -750,7 +782,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 21
+    id: '', // 21
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `This is completely customizable and is a point and click set up.`,
@@ -759,7 +792,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 22
+    id: '', // 22
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
@@ -768,7 +802,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 23
+    id: '', // 23
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
@@ -777,7 +812,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 24
+    id: '', // 24
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
@@ -786,7 +822,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 25
+    id: '', // 25
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
@@ -795,7 +832,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 26
+    id: '', // 26
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
@@ -804,7 +842,8 @@ const talktracks = [
     system: true,
   },
   {
-    id: uuid.v4(), // 27
+    id: '', // 27
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
@@ -814,10 +853,16 @@ const talktracks = [
   },
 ];
 
+talktracks.forEach(t => {
+  t.id = cleanId();
+  t.library_id = cleanId();
+});
+
 // BATTLE_CARDS
 const battlecards = [
   {
-    id: uuid.v4(), // 0
+    id: '', // 0
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `General Competitive`,
@@ -826,7 +871,8 @@ const battlecards = [
     system: true,
   },
   {
-    id: uuid.v4(), // 1
+    id: '', // 1
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Specific Competitor`,
@@ -835,7 +881,8 @@ const battlecards = [
     system: true,
   },
   {
-    id: uuid.v4(), // 2
+    id: '', // 2
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Customer Story`,
@@ -844,7 +891,8 @@ const battlecards = [
     system: true,
   },
   {
-    id: uuid.v4(), // 3
+    id: '', // 3
+    library_id: '',
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Security`,
@@ -854,10 +902,15 @@ const battlecards = [
   }
 ];
 
+battlecards.forEach(b => {
+  b.id = cleanId();
+  b.library_id = cleanId();
+});
+
 for (let i = 0; i < talktracks.length; i++) {
-  if (i <= 1) battlecards[0]['talk-tracks'].push(talktracks[i].id);
-  if (i <= 2 && i <= 5) battlecards[1]['talk-tracks'].push(talktracks[i].id);
-  if (i === 6) battlecards[2]['talk-tracks'].push(talktracks[i].id);
+  if (i <= 1) battlecards[0]['talk-tracks'].push(talktracks[i].library_id);
+  if (i <= 2 && i <= 5) battlecards[1]['talk-tracks'].push(talktracks[i].library_id);
+  if (i === 6) battlecards[2]['talk-tracks'].push(talktracks[i].library_id);
   if (i === 7) battlecards[3]['talk-tracks'].push(talktracks[i].id);
 };
 
@@ -1088,6 +1141,7 @@ const elements = [
   {
     id: 8, // 24 - id is talk-tracks index used while provisioning
     container_id: blocks[6].id,
+    library_id: talktracks[8].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
@@ -1098,6 +1152,7 @@ const elements = [
   {
     id: 9, // 25
     container_id: blocks[6].id,
+    library_id: talktracks[9].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
@@ -1108,6 +1163,7 @@ const elements = [
   {
     id: 10, // 26
     container_id: blocks[6].id,
+    library_id: talktracks[10].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
@@ -1118,6 +1174,7 @@ const elements = [
   {
     id: 11, // 27
     container_id: blocks[6].id,
+    library_id: talktracks[11].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
@@ -1182,6 +1239,7 @@ const elements = [
   {
     id: 12, // 34
     container_id: blocks[8].id,
+    library_id: talktracks[12].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `We have done solid work today and there is seemingly a good fit. Normally from here we line up deeper demo with a few more colleagues from your side who are involved in the decision. Can we go ahead and get that scheduled now?`,
@@ -1210,6 +1268,7 @@ const elements = [
   {
     id: 0, // 37
     container_id: blocks[11].id,
+    library_id: battlecards[0].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'General Competitive',
@@ -1220,6 +1279,7 @@ const elements = [
   {
     id: 1,  // 38
     container_id: blocks[11].id,
+    library_id: battlecards[1].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'Specific Competitor',
@@ -1410,6 +1470,7 @@ const elements = [
   {
     id: 13, // 59
     container_id: blocks[18].id,
+    library_id: talktracks[13].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `While researching companies similar to our success customers, we found you. We noticed the team has grown by X% in the last 6 months and estimate a manager to rep ratio of X:Y. We also found the team is located remote with a few open sales reqs on the careers page showing room for more growth to come. How did we do at scoping the landscape over there?`,
@@ -1420,6 +1481,7 @@ const elements = [
   {
     id: 14, // 60
     container_id: blocks[18].id,
+    library_id: talktracks[14].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally these types of things are leading indicators showing our solution makes sense. Fast growing companies often have resource contraints and scaling a remote team is a challenge in and of itself.`,
@@ -1484,6 +1546,7 @@ const elements = [
   {
     id: 8, // 67
     container_id: blocks[20].id,
+    library_id: talktracks[8].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
@@ -1494,6 +1557,7 @@ const elements = [
   {
     id: 9, // 68
     container_id: blocks[20].id,
+    library_id: talktracks[9].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
@@ -1504,6 +1568,7 @@ const elements = [
   {
     id: 10, // 69
     container_id: blocks[20].id,
+    library_id: talktracks[10].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
@@ -1514,6 +1579,7 @@ const elements = [
   {
     id: 11, // 70
     container_id: blocks[20].id,
+    library_id: talktracks[11].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
@@ -1578,6 +1644,7 @@ const elements = [
   {
     id: 24, // 77
     container_id: blocks[22].id,
+    library_id: talktracks[24].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a deeper dialog with a demo specific to your use case, would that make sense for us?`,
@@ -1588,6 +1655,7 @@ const elements = [
   {
     id: 25, // 78
     container_id: blocks[22].id,
+    library_id: talktracks[25].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `I noticed a few members on your team like__,___, normally we involve people like them in the process. Do you have access to their calendars so we can include them on the next call?`,
@@ -1625,6 +1693,7 @@ const elements = [
   {
     id: 0, // 82
     container_id: blocks[25].id,
+    library_id: battlecards[0].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'General Competitive',
@@ -1635,6 +1704,7 @@ const elements = [
   {
     id: 1, // 83
     container_id: blocks[25].id,
+    library_id: battlecards[1].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'Specific Competitor',
@@ -1645,6 +1715,7 @@ const elements = [
   {
     id: 2, // 84
     container_id: blocks[25].id,
+    library_id: battlecards[2].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'Customer Story',
@@ -1655,6 +1726,7 @@ const elements = [
   {
     id: 3, // 85
     container_id: blocks[25].id,
+    library_id: battlecards[3].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: 'Security',
@@ -1908,6 +1980,7 @@ const elements = [
   {
     id: 26, // 113
     container_id: blocks[33].id,
+    library_id: talktracks[26].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Low quota attainment is a results from many things, for example, inexperienced reps, poor adoption to your sales process, or limited to no time for coaching.`,
@@ -1918,6 +1991,7 @@ const elements = [
   {
     id: 27, // 114
     container_id: blocks[33].id,
+    library_id: talktracks[27].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Most tools to help solve this today are either reactive (call recording) and require both setting time aside for training and reps ability to recall the information on their calls.`,
@@ -1928,6 +2002,7 @@ const elements = [
   {
     id: 8, // 115
     container_id: blocks[33].id,
+    library_id: talktracks[8].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Coaching reps is hard. Not only is it a different skill set, but setting the time aside is challenging. Did you know on average 47% of sales managers spend less than 30 minutes coaching per week?`,
@@ -1938,6 +2013,7 @@ const elements = [
   {
     id: 9, // 116
     container_id: blocks[33].id,
+    library_id: talktracks[9].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Not only is coaching hard, but reps forget 60% of coaching after just one week.`,
@@ -1948,6 +2024,7 @@ const elements = [
   {
     id: 10, // 117
     container_id: blocks[33].id,
+    library_id: talktracks[10].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `That's why we lead with an always on approach that is incorporated to a reps daily workflow on every deal. We guide your reps as if you were there before, during, and after their sales calls.`,
@@ -1958,6 +2035,7 @@ const elements = [
   {
     id: 11, // 118
     container_id: blocks[33].id,
+    library_id: talktracks[11].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `This approach has a big impact because studies show that companies who coach reps regularly generate 17% more revenue.`,
@@ -1986,6 +2064,7 @@ const elements = [
   {
     id: 15, // 121
     container_id: blocks[34].id,
+    library_id: talktracks[15].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `SkillUp is completely integrated, so the activities and notes we will take in here, will of course populated in CRM.`,
@@ -2005,6 +2084,7 @@ const elements = [
   {
     id: 16, // 123
     container_id: blocks[34].id,
+    library_id: talktracks[16].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Let's fast forward, and say it's time for this call and launch salescoach.`,
@@ -2015,6 +2095,7 @@ const elements = [
   {
     id: 17, // 124
     container_id: blocks[34].id,
+    library_id: talktracks[17].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will guide the rep to ask the right questions, deliver the best talk tracks, and navigate objections.`,
@@ -2034,6 +2115,7 @@ const elements = [
   {
     id: 18, // 126
     container_id: blocks[35].id,
+    library_id: talktracks[18].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `SalesCoach will also enable reps to take down deliverables they owe after the call by assigning themselves action items, which automatically creates a post call task.`,
@@ -2044,6 +2126,7 @@ const elements = [
   {
     id: 19, // 127
     container_id: blocks[36].id,
+    library_id: talktracks[19].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Following the call reps will receive notifications ensuring they complete all followup action items like sending followup emails, and updating the deal in CRM.`,
@@ -2072,6 +2155,7 @@ const elements = [
   {
     id: 20, // 130
     container_id: blocks[37].id,
+    library_id: talktracks[20].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `In SkillUp we will help you transfer your existing sales resources into what we call Frameworks. Then you can easily disperse them across the team by having them use the best framework for each call.`,
@@ -2082,6 +2166,7 @@ const elements = [
   {
     id: 21, // 131
     container_id: blocks[37].id,
+    library_id: talktracks[21].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `This is completely customizable and is a point and click set up.`,
@@ -2092,6 +2177,7 @@ const elements = [
   {
     id: 22, // 132
     container_id: blocks[38].id,
+    library_id: talktracks[22].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Normally, if there is a good fit, we set up a call to discuss any technical or integration questions your CRM admin may have. Should we go ahead and get that lined up?`,
@@ -2102,6 +2188,7 @@ const elements = [
   {
     id: 23, // 133
     container_id: blocks[38].id,
+    library_id: talktracks[23].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Typically at this stage we also want to include a few members from your sales team to get their input. Do you have some team leads who typically like to weigh in on new tooling?`,
@@ -2139,6 +2226,7 @@ const elements = [
   {
     id: 1, // 137
     container_id: blocks[41].id,
+    library_id: battlecards[1].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Specific Competitor`,
@@ -2149,6 +2237,7 @@ const elements = [
   {
     id: 3, // 138
     container_id: blocks[41].id,
+    library_id: battlecards[3].id,
     corporate_id: '',
     account_id: 'all-accounts',
     label: `Customer Story`,
@@ -2256,13 +2345,13 @@ const events = [
     status: 'string',
     summary: 'RocketTech & SkillUp - Discovery Call',
     description: 'string',
-    dateObj: getTodayOffSet(-1).dateObj,
+    dateObj: 'this is set in provision()',
     start: {
-      date: getTodayOffSet(-1).date,
+      date: 'this is set in provision()',
       dateTime: '12:00pm'
     },
     end: {
-      date: getTodayOffSet(-1).date,
+      date: 'this is set in provision()',
       dateTime: '12:30pm'
     },
     attendees: [
@@ -2445,13 +2534,13 @@ const events = [
     status: 'string',
     summary: 'ByteCode & SkillUp - Discovery call',
     description: 'string',
-    dateObj: getTodayOffSet(-1).dateObj,
+    dateObj: 'this is set in provision()',
     start: {
-      date: getTodayOffSet(-1).date,
+      date: 'this is set in provision()',
       dateTime: '1:00pm'
     },
     end: {
-      date: getTodayOffSet(-1).date,
+      date: 'this is set in provision()',
       dateTime: '1:30pm'
     },
     attendees: [
