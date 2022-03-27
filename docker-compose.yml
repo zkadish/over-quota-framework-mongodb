@@ -4,19 +4,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.mongo
-    command: [--config, /etc/mongod.conf]
+    command: [--config, '/etc/${MONGO_CONFIG}']
     # command: mongod --config /etc/mongod.conf
     networks:
       - skillup-network
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
-      - MONGO_INITDB_DATABASE=${MONGO_INIT_DATABASE}
+      - MONGO_INITDB_DATABASE=${INIT_MONGO_DB}
     volumes:
       - $PWD/mongo-data:/data/db
-      - $PWD/mongo-scripts/init-mongodb.js:/docker-entrypoint-initdb.d/init-mongodb.js:ro
+      - $PWD/mongo-scripts/${INIT_MONGO_JS}:/docker-entrypoint-initdb.d/${INIT_MONGO_JS}:ro
     ports:
-      - "${MONGO_PORT}:${MONGO_PORT}"
+      # - "${MONGO_PORT}:${MONGO_PORT}"
+      - 56701:56701
     # healthcheck:
     #   test: echo 'db.runCommand("ping").ok' | mongo 127.0.0.1:27017/test --quiet
     #   interval: 30s

@@ -1,4 +1,5 @@
 load('../node_modules/js-uuid/js-uuid.js');
+// console.log('TEST TEST TEST');
 const uuid = UUID();
 const cleanId = () => uuid.v4().replace(/-/g, '');
 // TODO: refactor to use UTC time
@@ -81,18 +82,8 @@ const cleanId = () => uuid.v4().replace(/-/g, '');
 //   };
 // };
 
-db.createUser(
-  {
-    user: 'frameworkuser',
-    pwd: 'frameworkuserpassword',
-    roles: [
-      {
-        role: 'readWrite',
-        db: 'frameworkServiceDev',
-      }
-    ],
-  }
-);
+// use authServiceDev;
+var db = db.getSiblingDB('admin');
 
 db.createUser(
   {
@@ -105,7 +96,23 @@ db.createUser(
       },
     ],
   }
-)
+);
+
+// use authServiceDev;
+db = db.getSiblingDB('frameworkServiceLocal');
+
+db.createUser(
+  {
+    user: 'frameworkuser',
+    pwd: 'frameworkuserpassword',
+    roles: [
+      {
+        role: 'readWrite',
+        db: 'frameworkServiceLocal',
+      }
+    ],
+  }
+);
 
 // TEMPLATES
 const templates = [
@@ -2240,7 +2247,7 @@ const elements = [
     library_id: battlecards[3].id,
     corporate_id: '',
     account_id: 'all-accounts',
-    label: `Customer Story`,
+    label: `Security`,
     'talk-tracks': [],
     type: 'battle-card',
     system: true,
