@@ -2342,6 +2342,7 @@ db.blocks.insert(blocks);
 db.createCollection('elements');
 db.elements.insert(elements);
 
+// These call events are past mock call events. Added to a user's account on user provisioning
 const events = [
   {
     id: 'bvuZSSjexj68DrzRuwf5iG',
