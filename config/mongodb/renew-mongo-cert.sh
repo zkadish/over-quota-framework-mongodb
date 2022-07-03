@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define variables
-DOMAIN=dev.aframeworksuth.mongo.overquota.io
+DOMAIN=dev.frameworks.mongo.veiwportmedia.org
 
 # renew cert
 certbot renew
@@ -9,11 +9,11 @@ certbot renew
 # combine latest letsencrypt files for mongo
 
 # find latest fullchain*.pem
-newestFull=$(ls -v /etc/letsencrypt/archive/dev.frameworks.mongo.overquota.io/fullchain*.pem | tail -n 1)
+newestFull=$(ls -v /etc/letsencrypt/archive/dev.frameworks.mongo.veiwportmedia.org/fullchain*.pem | tail -n 1)
 echo "$newestFull"
 
 # find latest privkey*.pem
-newestPriv=$(ls -v /etc/letsencrypt/archive/dev.frameworks.mongo.overquota.io/privkey*.pem | tail -n 1)
+newestPriv=$(ls -v /etc/letsencrypt/archive/dev.frameworks.mongo.veiwportmedia.org/privkey*.pem | tail -n 1)
 echo "$newestPriv"
 
 # combine to mongo.pem
